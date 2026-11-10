@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Krm Alteen Restaurant & Lounge Admin Dashboard">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="كرم التين">
+  <link rel="apple-touch-icon" href="logo.webp">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="logo.webp"/>
+
+  <title>كرم التين - لوحة التحكم الإدارية</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      background-color: #1B4332;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Cairo', sans-serif;
+    }
+    .loading-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .loading-logo {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 3px solid #D4A373;
+      object-fit: cover;
+      animation: pulse 1.5s infinite ease-in-out;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    .loading-title {
+      margin-top: 18px;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+    .spinner {
+      margin-top: 15px;
+      width: 36px;
+      height: 36px;
+      border: 3px solid rgba(212, 163, 115, 0.3);
+      border-top: 3px solid #D4A373;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.85; }
+      50% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.85; }
+    }
+  </style>
+</head>
+<body>
+  <div id="loading" class="loading-container">
+    <img src="logo.webp" class="loading-logo" alt="كرم التين">
+    <div class="loading-title">كرم التين - جاري التحميل...</div>
+    <div class="spinner"></div>
+  </div>
+
+  <script>
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var loading = document.getElementById('loading');
+        if (loading) {
+          loading.style.transition = 'opacity 0.4s ease';
+          loading.style.opacity = '0';
+          setTimeout(function() { loading.remove(); }, 400);
+        }
+      }, 800);
+    });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

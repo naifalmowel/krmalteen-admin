@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "krmalteenz"
+  },
+  "targets": {
+    "krmalteenz": {
+      "hosting": {
+        "admin": [
+          "krmalteen-admin"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
